@@ -1,0 +1,10 @@
+#%YAML:1.0
+---
+set:
+   - { x:1, y:2, x:[ 1, 0, 0, 1, 1, 0, 1, 1 ] }
+tag:     !!hello
+   cols: 3
+   rows: 4
+   data: [1,-2,3]
+abc:     1234
+date:    "Fri Jul 26 23:42:37 2019"
