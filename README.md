@@ -21,6 +21,7 @@ diff -U 100 <(yaml-sort sample1.yml) <(yaml-sort sample2.yml)
 ```
 
 ## TODO
+* write test code
 
 ----
 
@@ -76,6 +77,7 @@ yaml.constructor.ConstructorError: could not determine a constructor for the tag
 ```
 %YAML:1.0
 ```
+これは，opencv側のbugらしいので，その点では問題ない
 
 ```
 abc: {x:[12,3]}
