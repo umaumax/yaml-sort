@@ -19,7 +19,7 @@ diff -U 100 <(./yaml-sort.py sample1.yml) <(./yaml-sort.py sample2.yml)
 
 [test.yml]
 ```
-#%YAML:1.0
+%YAML:1.0
 ---
 set:
    - { x:1, y:2, x:[ 1, 0, 0, 1, 1, 0, 1, 1 ] }
