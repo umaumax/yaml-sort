@@ -42,6 +42,17 @@ date:    "Fri Jul 26 23:42:37 2019"
 
 ----
 
+* `%YAML:1.0`: これは正しくは`%YAML 1.0`
+  * [YAML Ain’t Markup Language \(YAML™\) Version 1\.2]( https://yaml.org/spec/1.2/spec.html#id2760395 )
+    * `%YAML`で検索すると正しい例がヒットする(ただし，このフォーマットが正式かどうかについての定義は見つからず)
+
+* [How to skip lines when reading a yaml file in python? \- Stack Overflow]( https://stackoverflow.com/questions/28058902/how-to-skip-lines-when-reading-a-yaml-file-in-python )
+  * 非常に参考になる
+* [pyyaml \- yaml\.scanner\.ScannerError: while scanning a directive \- Stack Overflow]( https://stackoverflow.com/questions/15571137/yaml-scanner-scannererror-while-scanning-a-directive )
+* [How do I load an OpenCV generated yaml file in python? \- OpenCV Q&A Forum]( https://answers.opencv.org/question/31207/how-do-i-load-an-opencv-generated-yaml-file-in-python/ )
+
+----
+
 ## PyYAML
 ```
 pip install -U PyYAML

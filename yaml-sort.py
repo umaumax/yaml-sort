@@ -4,6 +4,22 @@ import sys
 import yaml
 import argparse
 
+# FYI: [How to skip lines when reading a yaml file in python? \- Stack Overflow]( https://stackoverflow.com/questions/28058902/how-to-skip-lines-when-reading-a-yaml-file-in-python )
+
+
+def strip_malformed_directive(yaml_file):
+    """
+    Strip a malformed YAML directive from the top of a file.
+
+    Returns the slurped (!) file.
+    """
+    lines = list(yaml_file)
+    first_line = lines[0]
+    if first_line.startswith('%') and ":" in first_line:
+        return "\n".join(lines[1:])
+    else:
+        return "\n".join(lines)
+
 
 def simple_multi_constructor(loader, tag_suffix, node):
     return loader.construct_yaml_map(node)
@@ -11,6 +27,7 @@ def simple_multi_constructor(loader, tag_suffix, node):
 
 def genSortedYamlFile(input_filepath, output_filepath, verbose=False):
     with open(input_filepath, mode='r') as input_file:
+        directive_processed_content = strip_malformed_directive(input_file)
         # NOTE: for avoiding Secondary Handle:
         # NOTE: (lambda loader, suffix, node: None) -> ignore all
         yaml.add_multi_constructor('!', simple_multi_constructor, Loader=yaml.Loader)
@@ -19,7 +36,7 @@ def genSortedYamlFile(input_filepath, output_filepath, verbose=False):
         yaml.add_multi_constructor('tag', simple_multi_constructor, Loader=yaml.Loader)
 
         # NOTE: use yaml.Loader not yaml.FullLoader (since FullLoader cannot avoid tags)
-        data = yaml.load(input_file, Loader=yaml.Loader)
+        data = yaml.load(directive_processed_content, Loader=yaml.Loader)
         if verbose:
             print(data, file=sys.stderr)
 
