@@ -3,13 +3,27 @@
 typeset -A opt_args
 local context state line
 
-_values \
-  'options' \
-  "-h[show this help message and exit]" \
-  "--help[show this help message and exit]" \
+local cur=${words[CURRENT]}
+# local prev=${words[CURRENT-1]}
+
+# NOTE: for completion without '-' but duplicate print
+if [[ ${cur[-1]} != '-' ]]; then
+  _values \
+    'option' \
+    "-h[show this help message and exit]" \
+    "--help[show this help message and exit]" \
+    "--output-filepath[output_filepath]::OUTPUT_FILEPATH:_files" \
+    "-o[output_filepath]::OUTPUT_FILEPATH:_files" \
+    "--verbose[debug mode flag]" \
+    "-v[debug mode flag]"
+fi
+
+_arguments -s -S \
+  "-h[show this help message and exit]:" \
+  "--help[show this help message and exit]:" \
   "--output-filepath[output_filepath]::OUTPUT_FILEPATH:_files" \
   "-o[output_filepath]::OUTPUT_FILEPATH:_files" \
   "--verbose[debug mode flag]" \
-  "-v[debug mode flag]"
-
-_files
+  "-v[debug mode flag]:" \
+  "*::args:_files"
+# _files
