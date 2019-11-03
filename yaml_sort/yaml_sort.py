@@ -49,7 +49,7 @@ def genSortedYamlFile(input_filepath, output_filepath, verbose=False):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output-filepath', default='/dev/stdout', help='output_filepath')
-    parser.add_argument('-v', '--verbose', action='store_true')
+    parser.add_argument('-v', '--verbose', action='store_true', help='debug mode flag')
     parser.add_argument('input_filepath', help='input file path')
     parser.add_argument('args', nargs='*', help='1st args can overwrite output_filepath')  # any length of args is ok
 
