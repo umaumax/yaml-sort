@@ -4,13 +4,6 @@ typeset -A opt_args
 local context state line
 
 _values \
-  'subcommand' \
-  'add' \
-  'sync' \
-  'list' \
-  'remove'
-
-_values \
   'options' \
   "-h[show this help message and exit]:" \
   "--help[show this help message and exit]:" \
