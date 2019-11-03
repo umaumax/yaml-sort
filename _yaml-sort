@@ -1,0 +1,22 @@
+#compdef yaml-sort
+
+typeset -A opt_args
+local context state line
+
+_values \
+  'subcommand' \
+  'add' \
+  'sync' \
+  'list' \
+  'remove'
+
+_values \
+  'options' \
+  "-h[show this help message and exit]:" \
+  "--help[show this help message and exit]:" \
+  "--output-filepath[output_filepath]::OUTPUT_FILEPATH:_files" \
+  "-o[output_filepath]::OUTPUT_FILEPATH:_files" \
+  "--verbose[debug mode flag]" \
+  "-v[debug mode flag]:"
+
+_files
